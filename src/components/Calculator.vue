@@ -64,8 +64,8 @@ export default {
     const state = reactive({
       format: "DD.MM.YYYY",
       showStartForm: true,
-      startDate: "01.10.2020",
-      startDebt: 10000,
+      startDate: null,
+      startDebt: 0,
       lines: [],
     });
 
