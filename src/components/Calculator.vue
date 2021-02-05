@@ -118,8 +118,6 @@ export default {
           state.showStartForm = false;
         }
       });
-
-      console.log(state.lines);
     };
 
     const canCalculate = computed(() => {
@@ -135,7 +133,10 @@ export default {
         const days = line.date2.diff(line.date1, "days");
         const fine = Number(line.debt) * days * k1 * p1;
         const summ = Number(line.debt) + Number(fine);
-        const calc = `${formatedRub(line.debt)} x ${days} x 1/50 x 4.25%`;
+        const calc =
+          line.debt > 0
+            ? `${formatedRub(line.debt)} x ${days} x 1/50 x 4.25%`
+            : "Нечего рассчитывать!";
 
         return {
           date: line.date1.format(state.format),
