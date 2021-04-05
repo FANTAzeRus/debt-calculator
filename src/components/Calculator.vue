@@ -69,15 +69,6 @@ export default {
       lines: [],
     });
 
-    const lineStructure = {
-      date1: null,
-      date2: null,
-      debt: null,
-      fine: null,
-      days: null,
-      summ: null,
-    };
-
     const fillDatesFromNow = (start) => {
       const sd = moment(start, state.format, true);
       const dn = moment();
@@ -135,7 +126,7 @@ export default {
         const summ = Number(line.debt) + Number(fine);
         const calc =
           line.debt > 0
-            ? `${formatedRub(line.debt)} x ${days} x 1/50 x 4.25%`
+            ? `${formatedRub(line.debt)} x ${days} x 1/150 x 4.25%`
             : "Нечего рассчитывать!";
 
         return {
